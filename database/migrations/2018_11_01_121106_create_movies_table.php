@@ -23,6 +23,7 @@ class CreateMoviesTable extends Migration
             $table->string('header_title',255);
             $table->string('subheader_title',255);
             $table->string('image',255);
+            $table->string('meta_keywords',250);
             $table->timestamps();
         });
     }
