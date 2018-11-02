@@ -18,7 +18,7 @@ class CreateFilmRequestsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email');
             $table->string('subject');
-            $table->string('body');
+            $table->text('body');
             $table->timestamps();
         });
     }

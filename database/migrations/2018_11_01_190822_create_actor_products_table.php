@@ -14,12 +14,10 @@ class CreateActorProductsTable extends Migration
     public function up()
     {
         Schema::create('actor_products', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('actor_id');
             $table->integer('producible_id');
-            $table->integer('producible_type');
+            $table->string('producible_type' , 64);
             $table->primary(['actor_id' , 'producible_id' ,'producible_type'] ,'primary_key');
-            $table->timestamps();
         });
     }
 

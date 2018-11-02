@@ -15,9 +15,9 @@ class CreateSubtitlesTable extends Migration
     {
         Schema::create('subtitles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('download_link');
-            $table->integer('subtitleable_id');
-            $table->string('subtitleable_id');
+            $table->string('download_link' , 255);
+            $table->integer('producible_id');
+            $table->string('producible_type' , 64);
             $table->timestamps();
         });
     }
