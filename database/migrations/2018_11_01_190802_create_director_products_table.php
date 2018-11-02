@@ -14,12 +14,10 @@ class CreateDirectorProductsTable extends Migration
     public function up()
     {
         Schema::create('director_products', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('director_id');
             $table->integer('producible_id');
-            $table->integer('producible_type');
+            $table->string('producible_type' , 64);
             $table->primary(['director_id' , 'producible_id' ,'producible_type'] ,'primary_key');
-            $table->timestamps();
         });
     }
 

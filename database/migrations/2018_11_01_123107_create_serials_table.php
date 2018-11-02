@@ -16,12 +16,12 @@ class CreateSerialsTable extends Migration
         Schema::create('serials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->dateTime('release_date');
             $table->double('rate');
             $table->text('summary');
             $table->string('header_title',255);
             $table->string('subheader_title',255);
             $table->integer('number_of_seasons');
+            $table->dateTime('release_date');
             $table->timestamps();
         });
     }

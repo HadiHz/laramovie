@@ -16,7 +16,7 @@ class CreateAboutUsesTable extends Migration
         Schema::create('about_uses', function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
-            $table->string('image');
+            $table->string('image' , 255);
             $table->string('email');
             $table->tinyInteger('status');
             $table->timestamps();

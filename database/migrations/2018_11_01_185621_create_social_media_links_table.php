@@ -17,8 +17,8 @@ class CreateSocialMediaLinksTable extends Migration
             $table->increments('id');
             $table->integer('about_us_id');
             $table->string('name');
-            $table->string('link');
-            $table->string('image');
+            $table->string('link' , 255);
+            $table->string('image' , 255);
             $table->timestamps();
         });
     }

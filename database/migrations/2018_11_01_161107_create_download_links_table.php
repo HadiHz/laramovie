@@ -16,10 +16,10 @@ class CreateDownloadLinksTable extends Migration
         Schema::create('download_links', function (Blueprint $table) {
             $table->increments('id');
             $table->string('quality_name');
-            $table->string('link');
-            $table->string('screenshot_link');
+            $table->string('link' , 255);
+            $table->string('screenshot_link',255);
             $table->integer('downloadable_id');
-            $table->string('downloadable_type');
+            $table->string('downloadable_type',64);
             $table->timestamps();
         });
     }

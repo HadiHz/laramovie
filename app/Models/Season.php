@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
-    //
+    protected $guarded = ['id'];
+
+    public function serial()
+    {
+        return $this->belongsTo(Serial::class , 'serial_id');
+    }
+
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class , 'season_id');
+    }
 }
