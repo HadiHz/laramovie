@@ -8,6 +8,11 @@ class Movie extends Model
 {
     protected $guarded = ['id'];
 
+    public function findBySlug($slug)
+    {
+        return Movie::where('slug', $slug)->first();
+    }
+
     public function actors()
     {
         return $this->morphToMany(Actor::class , 'producible','actor_products','producible_id' , 'actor_id');
