@@ -132,6 +132,7 @@ return array(
         "videoUrl" => "آدرس ویدیو",
         "slug" => "نامک",
         "tags" => "تگ ها",
-        "category" => "دسته"
+        "category" => "دسته",
+        "subject" => "موضوع"
     ),
 );
