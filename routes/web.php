@@ -13,9 +13,19 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/test', function () {
+    return view('welcome');
+});
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'],function (){
+//when authentication failed, user redirect to login route automatically
+//hadi i cant speak persian , please speak english namoosan
+Route::get('/login' , 'frontend\UserController@login')->name('login');
+Route::post('/authenticate' , 'frontend\UserController@authenticate')->name('authenticate');
+
+
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'auth' ],function (){
 
     //movies routes
     Route::get('/movies' , 'MovieController@index')->name('admin.movies.list');
@@ -37,6 +47,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'],function (){
 
 
 
+    //comments routes
+    Route::get('/comments','CommentController@index')->name('admin.comments.list');
+    Route::get('/comments/verify/{id}/{flag}', 'CommentController@verify')->name('admin.comments.verify');
+    Route::get('/comments/singleshow/{id}','CommentController@singleshow')->name('admin.comments.singleshow');
+    Route::post('/comments/answer/{id}','CommentController@answer')->name('admin.comments.answer');
+    Route::get('/comments/edit/{id}','CommentController@edit')->name('admin.comments.edit');
+    Route::post('/comments/update/{id}','CommentController@update')->name('admin.comments.update');
+    Route::get('/comments/remove/{id}','CommentController@remove')->name('admin.comments.remove');
+
+
+
 
 });
 
@@ -44,7 +65,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'],function (){
 Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/' , 'HomeController@index')->name('home');
-
+    //uri in bayad ye giri dashte bashe
+    Route::post('/movie/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');
+    Route::post('/serial/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');
 
 
 });
