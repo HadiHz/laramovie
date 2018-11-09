@@ -68,6 +68,10 @@
 
     <!-- include('frontend.comment.form')  -->
 
+    <form method="get" action="{{ route('admin.film_request.sendmail') }}">
+        <button type="submit">تست ارسال ایمیل</button>
+    </form>
+
 
 
 

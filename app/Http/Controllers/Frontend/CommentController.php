@@ -22,7 +22,7 @@ class CommentController extends Controller
     {
         $request->validate([
             'body' => 'required',
-            'sender_email' => 'required'
+            'sender_email' => 'required|email'
         ]);
 
         $comment = new Comment;

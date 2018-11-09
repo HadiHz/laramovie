@@ -57,17 +57,35 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::get('/comments/remove/{id}','CommentController@remove')->name('admin.comments.remove');
 
 
+    //film requests route
+    Route::get('/film_requests/sendMail/{id}' , 'FilmRequestController@sendMail')->name('admin.film_request.sendMail');
+    Route::get('/film_requests' , 'FilmRequestController@index')->name('admin.film_request.index');
 
 
 });
 
 
+//Request route for test
+Route::get('/send/email' , 'admin\FilmRequestController@sendMail')->name('admin.film_request.sendmail');
+
+
+
 Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/' , 'HomeController@index')->name('home');
+
     //uri in bayad ye giri dashte bashe
     Route::post('/movie/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');
     Route::post('/serial/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');
+
+
+
+    //Request Routes
+    Route::get('/film_request', 'FilmRequestController@index')->name('index');
+
+
+    Route::post('/film_requests/store' , 'FilmRequestController@store')->name('frontend.film_request.store');
+
 
 
 });
