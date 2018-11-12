@@ -35,6 +35,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::post('/movies/edit/{id}', 'MovieController@update')->name('admin.movies.update');
     Route::get('/movies/delete/{id}', 'MovieController@delete')->name('admin.movies.delete');
 
+    Route::get('/movies/download-links/{id}' , 'MovieController@syncDownloadLinks')->name('admin.movies.sync_download_links');
+    Route::post('/movies/download-links/{id}' , 'MovieController@updateSyncDownloadLinks')->name('admin.movies.sync_download_links');
 
 
     //serials routes
@@ -44,6 +46,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::get('/serials/edit/{id}', 'SerialController@edit')->name('admin.serials.edit');
     Route::post('/serials/edit/{id}', 'SerialController@update')->name('admin.serials.update');
     Route::get('/serials/delete/{id}', 'SerialController@delete')->name('admin.serials.delete');
+
+
+    //genre routes
+    Route::get('/genres' , 'GenreController@index')->name('admin.genres.list');
+    Route::get('/genres/create', 'GenreController@create')->name('admin.genres.create');
+    Route::post('/genres/create', 'GenreController@store')->name('admin.genres.store');
+    Route::get('/genres/edit/{id}', 'GenreController@edit')->name('admin.genres.edit');
+    Route::post('/genres/edit/{id}', 'GenreController@update')->name('admin.genres.update');
+    Route::get('/genres/delete/{id}', 'GenreController@delete')->name('admin.genres.delete');
+
 
 
 

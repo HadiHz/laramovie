@@ -19,13 +19,13 @@ class UserController extends Controller
     public function login(){
         //in view ro bezar samte front
 
-        /*
-        User::create([
-            'id' => 1,
-            'name' => 'test',
-            'email' => 'test@gmail.com',
-            'password' =>bcrypt('123')
-        ]);*/
+
+//        User::create([
+//            'name' => 'test',
+//            'email' => 'test@gmail.com',
+//            'password' =>bcrypt('123')
+//        ]);
+
 
 
         return view('admin.login.index');
