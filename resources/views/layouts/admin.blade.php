@@ -1,13 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/vazir.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/select2.min.css" rel="stylesheet">
+    <title>Hello, world!</title>
 </head>
 <body>
-    @yield('content')
+@include('admin.partials.header_admin_panel')
+
+<div class="main-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2 pl-0 bg-dark text-center text-light pr-0">
+                @include('admin.partials.menu_admin_panel')
+            </div>
+            <div class="col-12 col-md-10 bg-light pt-3">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/select2.min.js"></script>
+<script src="/js/custom-admin.js"></script>
 </body>
 </html>

@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
+
+    use sluggable;
+    use SluggableScopeHelpers;
+
     protected $guarded = ['id'];
 
-    public function findBySlug($slug)
-    {
-        return Movie::where('slug', $slug)->first();
-    }
 
     public function actors()
     {
@@ -21,6 +23,11 @@ class Movie extends Model
     public function directors()
     {
         return $this->morphToMany(Director::class , 'producible','director_products','producible_id' , 'director_id');
+    }
+
+    public function writers()
+    {
+        return $this->morphToMany(Writer::class , 'producible','writer_products','producible_id' , 'writer_id');
     }
 
     public function countries()
@@ -46,6 +53,17 @@ class Movie extends Model
     public function download_links()
     {
         return $this->morphMany(Download_link::class, 'downloadable' , 'downloadable_type' , 'downloadable_id');
+    }
+
+
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 
 }

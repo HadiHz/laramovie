@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenreProductsTable extends Migration
+class CreateWriterProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateGenreProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('genre_products', function (Blueprint $table) {
-            $table->integer('genre_id');
+        Schema::create('writer_products', function (Blueprint $table) {
+            $table->integer('writer_id');
             $table->integer('producible_id');
             $table->string('producible_type' , 64);
-            $table->primary(['genre_id' , 'producible_id' ,'producible_type'] ,'primary_key');
+            $table->primary(['writer_id' , 'producible_id' ,'producible_type'] ,'primary_key');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateGenreProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genre_products');
+        Schema::dropIfExists('writer_products');
     }
 }

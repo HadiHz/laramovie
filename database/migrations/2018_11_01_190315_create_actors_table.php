@@ -16,7 +16,7 @@ class CreateActorsTable extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('image' , 255);
+            $table->string('image' , 255)->nullable();
             $table->timestamps();
         });
     }

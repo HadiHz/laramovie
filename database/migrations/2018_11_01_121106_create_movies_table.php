@@ -19,6 +19,7 @@ class CreateMoviesTable extends Migration
             $table->integer('release_year');
             $table->double('rate');
             $table->string('duration');
+            $table->string('language');
             $table->text('summary');
             $table->string('header_title',255);
             $table->string('subheader_title',255);
