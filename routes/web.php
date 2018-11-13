@@ -86,6 +86,11 @@ Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/' , 'HomeController@index')->name('home');
 
+    Route::get('/movies' , 'MovieController@index')->name('frontend.movies.index');
+    Route::get('/movies/{slug}' , 'MovieController@single')->name('frontend.movies.single');
+
+
+
     //uri in bayad ye giri dashte bashe
     Route::post('/movie/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');
     Route::post('/serial/{id}/{flag}' , 'CommentController@store')->name('frontend.comment.store');

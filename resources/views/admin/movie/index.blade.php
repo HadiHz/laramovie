@@ -30,7 +30,7 @@
                         <td>{{ $movie->release_year }}</td>
 
                         <td>
-                            <a href="#" class="btn btn-success">مشاهده</a>
+                            <a href="{{ route('frontend.movies.single' , $movie->slug) }}" class="btn btn-success">مشاهده</a>
                             <a href="{{ route('admin.movies.delete' , $movie->id) }}"
                                onclick="return confirm('آیا مطمئن هستید؟')" class="btn btn-danger  mt-2 mb-2">حذف</a>
                             <a href="{{ route('admin.movies.edit' , $movie->id) }}" class="btn btn-warning ">ویرایش</a>
