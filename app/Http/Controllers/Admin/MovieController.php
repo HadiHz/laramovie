@@ -19,24 +19,8 @@ class MovieController extends Controller
 {
     public function index()
     {
-//        $movie = Movie::find(1);
-//        $sub = new Subtitle();
-//        $sub->download_link = "link2";
-//        $movie->subtitles()->save($sub);
-//        $sub = Subtitle::find(1);
-//        $pro = $sub->producible->name;
-//        dd($movie->subtitles()->get());
-//        dd($pro);
-//        $name = str_slug($this->name);
-
-//        $movie = Movie::find(2);
-//        $slug = SlugService::createSlug(Movie::class, 'slug', 'دارکوب');
-//        $movie->slug = $slug;
-//        $movie->save();
-//        dd($movie);
-
-        $movies = Movie::paginate(15);
-        return view('admin.movie.index' , compact('movies'));
+        $movies = Movie::orderBy('updated_at', 'DESC')->paginate(15);
+        return view('admin.movie.index', compact('movies'));
 
     }
 
@@ -47,7 +31,7 @@ class MovieController extends Controller
         $actors = Actor::all();
         $writers = Writer::all();
         $genres = Genre::all();
-        return view('admin.movie.create' , compact('countries' , 'directors', 'actors','writers' , 'genres'));
+        return view('admin.movie.create', compact('countries', 'directors', 'actors', 'writers', 'genres'));
 
     }
 
@@ -68,11 +52,11 @@ class MovieController extends Controller
         ]);
 
         $imagePath = null;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
-            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('images'), $imageName);
-            $imagePath = DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$imageName;
+            $imagePath = DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $imageName;
 
         }
 
@@ -92,17 +76,16 @@ class MovieController extends Controller
 
         $new_movie = Movie::create($movie_data);
 
-        if($new_movie){
-            if($request->has('countries')) {
+        if ($new_movie) {
+            if ($request->has('countries')) {
 
                 $countries = $request->input('countries');
                 $countryIds = [];
 
-                foreach ($countries as $country){
-                    if(is_numeric($country)){
+                foreach ($countries as $country) {
+                    if (is_numeric($country)) {
                         $countryIds[] = $country;
-                    }
-                    else{
+                    } else {
                         $new_country = Country::create([
                             'name' => $country
                         ]);
@@ -111,15 +94,14 @@ class MovieController extends Controller
                 }
                 $new_movie->countries()->sync($countryIds);
             }
-            if($request->has('directors')) {
+            if ($request->has('directors')) {
                 $directors = $request->input('directors');
                 $directorIds = [];
 
-                foreach ($directors as $director){
-                    if(is_numeric($director)){
+                foreach ($directors as $director) {
+                    if (is_numeric($director)) {
                         $directorIds[] = $director;
-                    }
-                    else{
+                    } else {
                         $new_director = Director::create([
                             'name' => $director
                         ]);
@@ -128,15 +110,14 @@ class MovieController extends Controller
                 }
                 $new_movie->directors()->sync($directorIds);
             }
-            if($request->has('actors')) {
+            if ($request->has('actors')) {
                 $actors = $request->input('actors');
                 $actorIds = [];
 
-                foreach ($actors as $actor){
-                    if(is_numeric($actor)){
+                foreach ($actors as $actor) {
+                    if (is_numeric($actor)) {
                         $actorIds[] = $actor;
-                    }
-                    else{
+                    } else {
                         $new_actor = Actor::create([
                             'name' => $actor
                         ]);
@@ -145,15 +126,14 @@ class MovieController extends Controller
                 }
                 $new_movie->actors()->sync($actorIds);
             }
-            if($request->has('writers')) {
+            if ($request->has('writers')) {
                 $writers = $request->input('writers');
                 $writerIds = [];
 
-                foreach ($writers as $writer){
-                    if(is_numeric($writer)){
+                foreach ($writers as $writer) {
+                    if (is_numeric($writer)) {
                         $writerIds[] = $writer;
-                    }
-                    else{
+                    } else {
                         $new_writer = Writer::create([
                             'name' => $writer
                         ]);
@@ -162,15 +142,15 @@ class MovieController extends Controller
                 }
                 $new_movie->writers()->sync($writerIds);
             }
-            if($request->has('genres')) {
+            if ($request->has('genres')) {
                 $new_movie->genres()->sync($request->input('genres'));
             }
 
-            return  redirect()->route('admin.movies.list')->with('success','فیلم جدید با موفقیت ثبت شد');
+            return redirect()->route('admin.movies.list')->with('success', 'فیلم جدید با موفقیت ثبت شد');
         }
     }
 
-    public function edit(Request $request , $id)
+    public function edit(Request $request, $id)
     {
         $movieItem = Movie::find($id);
         $countries = Country::all();
@@ -183,9 +163,9 @@ class MovieController extends Controller
         $movie_writers = $movieItem->writers()->get()->pluck('id')->toArray();
         $genres = Genre::all();
         $movie_genres = $movieItem->genres()->get()->pluck('id')->toArray();
-        return view('admin.movie.edit' , compact('movieItem' , 'countries' , 'movie_countries',
-            'directors' , 'movie_directors' , 'actors' , 'movie_actors' , 'writers' , 'movie_writers',
-            'genres' , 'movie_genres'));
+        return view('admin.movie.edit', compact('movieItem', 'countries', 'movie_countries',
+            'directors', 'movie_directors', 'actors', 'movie_actors', 'writers', 'movie_writers',
+            'genres', 'movie_genres'));
 
     }
 
@@ -210,16 +190,16 @@ class MovieController extends Controller
 
         $public_path = public_path();
         $imagePath = null;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
-            $result = File::delete($public_path.$movie->image);
+            $result = File::delete($public_path . $movie->image);
 
 
-            if ($result){
+            if ($result) {
 
-                $imageName = time().'.'.$request->image->getClientOriginalExtension();
+                $imageName = time() . '.' . $request->image->getClientOriginalExtension();
                 $request->image->move(public_path('images'), $imageName);
-                $imagePath = DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$imageName;
+                $imagePath = DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $imageName;
 
 
                 $updateResult = $movie->update([
@@ -236,7 +216,7 @@ class MovieController extends Controller
                 ]);
             }
 
-        }else{
+        } else {
             $updateResult = $movie->update([
                 'name' => request()->input('name'),
                 'rate' => request()->input('rate'),
@@ -251,22 +231,17 @@ class MovieController extends Controller
         }
 
 
+        if ($updateResult) {
 
-
-
-
-        if($updateResult){
-
-            if($request->has('countries')) {
+            if ($request->has('countries')) {
 
                 $countries = $request->input('countries');
                 $countryIds = [];
 
-                foreach ($countries as $country){
-                    if(is_numeric($country)){
+                foreach ($countries as $country) {
+                    if (is_numeric($country)) {
                         $countryIds[] = $country;
-                    }
-                    else{
+                    } else {
                         $new_country = Country::create([
                             'name' => $country
                         ]);
@@ -275,15 +250,14 @@ class MovieController extends Controller
                 }
                 $movie->countries()->sync($countryIds);
             }
-            if($request->has('directors')) {
+            if ($request->has('directors')) {
                 $directors = $request->input('directors');
                 $directorIds = [];
 
-                foreach ($directors as $director){
-                    if(is_numeric($director)){
+                foreach ($directors as $director) {
+                    if (is_numeric($director)) {
                         $directorIds[] = $director;
-                    }
-                    else{
+                    } else {
                         $new_director = Director::create([
                             'name' => $director
                         ]);
@@ -292,15 +266,14 @@ class MovieController extends Controller
                 }
                 $movie->directors()->sync($directorIds);
             }
-            if($request->has('actors')) {
+            if ($request->has('actors')) {
                 $actors = $request->input('actors');
                 $actorIds = [];
 
-                foreach ($actors as $actor){
-                    if(is_numeric($actor)){
+                foreach ($actors as $actor) {
+                    if (is_numeric($actor)) {
                         $actorIds[] = $actor;
-                    }
-                    else{
+                    } else {
                         $new_actor = Actor::create([
                             'name' => $actor
                         ]);
@@ -309,15 +282,14 @@ class MovieController extends Controller
                 }
                 $movie->actors()->sync($actorIds);
             }
-            if($request->has('writers')) {
+            if ($request->has('writers')) {
                 $writers = $request->input('writers');
                 $writerIds = [];
 
-                foreach ($writers as $writer){
-                    if(is_numeric($writer)){
+                foreach ($writers as $writer) {
+                    if (is_numeric($writer)) {
                         $writerIds[] = $writer;
-                    }
-                    else{
+                    } else {
                         $new_writer = Writer::create([
                             'name' => $writer
                         ]);
@@ -326,15 +298,13 @@ class MovieController extends Controller
                 }
                 $movie->writers()->sync($writerIds);
             }
-            if($request->has('genres')) {
+            if ($request->has('genres')) {
                 $res = $movie->genres()->sync($request->input('genres'));
             }
             $movie->touch(); // this code updates updated_at
-            return redirect()->route('admin.movies.list')->with('success','اطلاعات با موفقیت به روز رسانی شد');
+            return redirect()->route('admin.movies.list')->with('success', 'اطلاعات با موفقیت به روز رسانی شد');
 
         }
-
-
 
 
     }
@@ -345,7 +315,7 @@ class MovieController extends Controller
         $movie = movie::find($movie_id);
         if ($movie) {
             $result = $movie->delete();
-            if ($result){
+            if ($result) {
                 $movie->countries()->sync([]);
                 $movie->directors()->sync([]);
                 $movie->actors()->sync([]);
@@ -353,10 +323,10 @@ class MovieController extends Controller
                 $movie->genres()->sync([]);
                 $movie->download_links()->delete();
 
-                $result = File::delete(public_path().$movie->image);
-                if ($result){
+                $result = File::delete(public_path() . $movie->image);
+                if ($result) {
 
-                    return redirect()->route('admin.movies.list')->with('success','فیلم مورد نظر با موفقیت حذف گردید.');
+                    return redirect()->route('admin.movies.list')->with('success', 'فیلم مورد نظر با موفقیت حذف گردید.');
                 }
             }
         }
@@ -366,56 +336,55 @@ class MovieController extends Controller
     public function syncDownloadLinks(Request $request, $id)
     {
         $movieItem = Movie::find($id);
-        $downloadLinks =  $movieItem->download_links()->get();
-        $subtitles =  $movieItem->subtitles()->get();
+        $downloadLinks = $movieItem->download_links()->get();
+        $subtitles = $movieItem->subtitles()->get();
 
 //        dd($downloadLinks);
-        return view('admin.movie.syncDownloadLinks' , compact('downloadLinks' , 'subtitles'));
+        return view('admin.movie.syncDownloadLinks', compact('downloadLinks', 'subtitles'));
     }
 
     public function updateSyncDownloadLinks(Request $request, $id)
     {
 
 
-
         $rules = [];
 
 
-        foreach($request->input('downloadLinksQuality') as $key => $value) {
-            $rules["downloadLinksQuality.{$key}"] = 'required';
-            $rules["downloadLinksScreen.{$key}"] = 'required';
-            $rules["downloadLinks.{$key}"] = 'required';
+        if ($request->has('downloadLinksQuality')) {
+
+            foreach ($request->input('downloadLinksQuality') as $key => $value) {
+                $rules["downloadLinksQuality.{$key}"] = 'required';
+                $rules["downloadLinksScreen.{$key}"] = 'required';
+                $rules["downloadLinks.{$key}"] = 'required';
+            }
         }
 
+        if ($request->has('subtitleDownloadLinks')) {
 
-        foreach($request->input('subtitleDownloadLinks') as $key => $value) {
-            $rules["subtitleDownloadLinks.{$key}"] = 'required';
+            foreach ($request->input('subtitleDownloadLinks') as $key => $value) {
+                $rules["subtitleDownloadLinks.{$key}"] = 'required';
+            }
         }
 
         $request->validate($rules);
 
 
-
-
-
-
-
         $movie = Movie::find($id);
         $ids = $movie->download_links()->get()->pluck('id')->toArray();
-        $idArr=[];
+        $idArr = [];
 //        dd($request->all());
         $qualities = $request->input('downloadLinksQuality');
         $screens = $request->input('downloadLinksScreen');
         $downloadLinks = $request->input('downloadLinks');
 
         $counter = 0;
-        if ($request->has('download_link_id')){
-            foreach ($request->input('download_link_id') as $value){
+        if ($request->has('download_link_id')) {
+            foreach ($request->input('download_link_id') as $value) {
                 $idArr[] = intval($value);
             }
 
-            foreach ($idArr as $value){
-                if (in_array($value , $ids)){
+            foreach ($idArr as $value) {
+                if (in_array($value, $ids)) {
                     $dl = Download_link::find($value);
                     $dl->update([
                         'link' => $downloadLinks[$counter],
@@ -426,44 +395,43 @@ class MovieController extends Controller
                     $counter++;
                 }
             }
-            foreach ($ids as $value){
-                if (!in_array($value , $idArr)){
+            foreach ($ids as $value) {
+                if (!in_array($value, $idArr)) {
                     $dlrm = Download_link::find($value);
                     $dlrm->delete();
                 }
             }
 
-        }else{
+        } else {
             $movie->download_links()->delete();
         }
-        if ($downloadLinks && $qualities && $screens ){
-            for ($i=$counter;$i < count($downloadLinks) ; $i++){
+        if ($downloadLinks && $qualities && $screens) {
+            for ($i = $counter; $i < count($downloadLinks); $i++) {
                 $download_link = new Download_link();
                 $download_link->link = $downloadLinks[$i];
                 $download_link->quality_name = $qualities[$i];
-                $download_link->screenshot_link	 = $screens[$i];
+                $download_link->screenshot_link = $screens[$i];
                 $movie->download_links()->save($download_link);
             }
         }
 
 
-
         //--------------- SUBTITLES --------------
 
         $subtitleIds = $movie->subtitles()->get()->pluck('id')->toArray();
-        $subtitleIdArr=[];
+        $subtitleIdArr = [];
 
         $subtitlesDownloadLinks = $request->input('subtitleDownloadLinks');
 
 
         $counter = 0;
-        if ($request->has('subtitle_id')){
-            foreach ($request->input('subtitle_id') as $value){
+        if ($request->has('subtitle_id')) {
+            foreach ($request->input('subtitle_id') as $value) {
                 $subtitleIdArr[] = intval($value);
             }
 
-            foreach ($subtitleIdArr as $value){
-                if (in_array($value , $subtitleIds)){
+            foreach ($subtitleIdArr as $value) {
+                if (in_array($value, $subtitleIds)) {
                     $sb = Subtitle::find($value);
                     $sb->update([
                         'download_link' => $subtitlesDownloadLinks[$counter]
@@ -472,19 +440,19 @@ class MovieController extends Controller
                     $counter++;
                 }
             }
-            foreach ($subtitleIds as $value){
-                if (!in_array($value , $subtitleIdArr)){
+            foreach ($subtitleIds as $value) {
+                if (!in_array($value, $subtitleIdArr)) {
                     $sbrm = Subtitle::find($value);
                     $sbrm->delete();
                 }
             }
 
-        }else{
+        } else {
             $movie->subtitles()->delete();
         }
 
-        if ($subtitlesDownloadLinks){
-            for ($i=$counter;$i < count($subtitlesDownloadLinks) ; $i++){
+        if ($subtitlesDownloadLinks) {
+            for ($i = $counter; $i < count($subtitlesDownloadLinks); $i++) {
                 $subtitle = new Subtitle();
                 $subtitle->download_link = $subtitlesDownloadLinks[$i];
                 $movie->subtitles()->save($subtitle);
@@ -492,11 +460,7 @@ class MovieController extends Controller
         }
 
 
-
-
-
-
-        return redirect()->route('admin.movies.list')->with('success' , 'عملیات با موفقیت انجام شد.');
+        return redirect()->route('admin.movies.list')->with('success', 'عملیات با موفقیت انجام شد.');
 
     }
 

@@ -226,3 +226,18 @@ select2-container--default .select2-selection--multiple .select2-selection__rend
     padding: 0 5px;
     width: 100%;
 }
+
+
+footer
+{
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    background: linear-gradient(to right, #4286f4, #373B44);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.copyright-footer
+{
+    vertical-align: middle;
+}

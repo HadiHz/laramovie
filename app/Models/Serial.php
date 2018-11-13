@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
 class Serial extends Model
 {
+
+    use sluggable;
+    use SluggableScopeHelpers;
+
+
     protected $guarded = ['id'];
 
     public function actors()
@@ -37,6 +44,16 @@ class Serial extends Model
     public function seasons()
     {
         return $this->hasMany(Season::class , 'serial_id');
+    }
+
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 
 }
