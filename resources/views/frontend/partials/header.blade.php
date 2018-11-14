@@ -11,8 +11,8 @@
                     <h1 class="h1-title text-light">دانلود فیلم | دانلود سریال</h1>
                 </div>
                 <div class="col-12 col-md-7 mt-4 w-100">
-                    <form class="form-inline my-2 my-lg-0 w-100 mr-5">
-                        <input class="form-control mr-sm-2 w-75" type="search" placeholder="عبارت برای جستجو را وارد کنید" aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0 w-100 mr-5" action="{{ route('search') }}" method="get">
+                        <input name="search" class="form-control mr-sm-2 w-75" type="search" placeholder="عبارت برای جستجو را وارد کنید" aria-label="Search">
                         <button class="btn btn-info my-2 my-sm-0" type="submit">جستجو</button>
                     </form>
                 </div>

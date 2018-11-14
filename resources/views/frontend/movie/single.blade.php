@@ -131,7 +131,102 @@
     @endif
 
 
+    <div class="row mr-0 alert alert-info mb-0 download-help-section text-right">
+        <p>راهنمای دانلود : </p>
+        <p>1 - برای راحتی دانلود از نرم افزار دانلود منیجر استفاده کنید . درصورتی که این نرم افزار را ندارید با کلیک بر روی لینک ، <a href="http://p30download.com/fa/entry/44201/">دانلود نرم افزار دانلود منیجر </a>
+            این نرم افزار را دانلود کنید .   </p>
+        <p>2 - درصورتی که نرم افزار دانلود منیجر را دارید ولی در هنگام دانلود با مروگر دانلود میکند میتوانید از لینک های زیر استفاده کنید :
+            <a href="https://www.sarzamindownload.com/contents/2334/">آموزش فعال کردن دانلود منیجر برای کروم</a>
+            <br>
+            <a href="http://p30mororgar.ir/firefox/how-to-enable-idm-in-firefox/"> آموزش فعال کردن دانلود منیجر برای فایرفاکس</a></p>
+        <p>3 - درصورت خرابی لینک ها کافیست به فول فیلم اطلاع دهید تا در سریع ترین زمان ممکن لینک دانلود سالم را برای شما کاربران فول فیلم تهیه نماییم . </p>
+    </div>
 
+
+
+
+    <div class="row mt-3 p-3">
+        <div class="pr-0 pb-3 pl-0 bg-light w-100 shadow text-right">
+            <div class="comment-title pt-3 pb-3 mb-3 pr-2 pl-2  ">
+                <span class="d-block">دیدگاه شما</span>
+            </div>
+            <form>
+                <div class="form-group pr-2 pl-2">
+                    <label for="formGroupExampleInput">نام شما</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="لطفا نام خود را در این قسمت وارد کنید">
+                </div>
+                <div class="form-group pr-2 pt-4 pb-4 pl-2">
+                    <label for="exampleInputEmail1">ایمیل شما</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="لطفا ایمیل خود را اینجا وارد کنید">
+                    <small id="emailHelp" class="form-text text-muted">ایمیل شما به سایر کاربران نشان داده نخواهد شد.</small>
+                </div>
+                <div class="form-group pr-2 pl-2">
+                    <div class="col-md-3">
+                        <label for="exampleFormControlTextarea1" class="text-dark"></label>
+                    </div>
+
+                    <textarea class="form-control" placeholder="دیدگاه خود را در این قسمت بنویسید ...." id="exampleFormControlTextarea1" rows="6"></textarea>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-3 d-inline-block">ارسال نظر</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-3"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 text-right shadow-lg">
+            <div class="row mb-3 mt-3">
+                <div class="comment-box pt-4 mr-3 ml-3">
+                    <div class="header-comment pt-3 pb-3 pr-3 shadow-sm bg-light w-100">
+                        <div class="comment-name d-inline-block w-25">
+                            <span>هادی : </span>
+                        </div>
+                        <div class="comment-date-time d-inline-block w-50">
+                            <span class="comment-time d-inline-block pl-4" ><span> تاریخ :</span> 28 / 11 / 1373</span>
+                            <span class="comment-time d-inline-block pr-2" ><span>ساعت : </span>15:25</span>
+                        </div>
+                    </div>
+                    <div class="body-comment pt-4  w-100">
+                        <p>
+                            ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربر
+                        </p>
+                    </div>
+
+                    <div class="comment-reply d-none bg-light mr-5 mt-3 pr-3">
+                        <div class="comment-reply-title">
+                            ادمین :
+                        </div>
+                        <div class="comment-reply-body">
+                            <p> این جواب کامنت هست </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 mt-3">
+                <div class="comment-box pt-4 mr-3 ml-3">
+                    <div class="header-comment pt-3 pb-3 pr-3 shadow-sm bg-light w-100">
+                        <div class="comment-name d-inline-block w-25">
+                            <span>هادی : </span>
+                        </div>
+                        <div class="comment-date-time d-inline-block w-50">
+                            <span class="comment-time d-inline-block pl-4" ><span> تاریخ :</span> 28 / 11 / 1373</span>
+                            <span class="comment-time d-inline-block pr-2" ><span>ساعت : </span>15:25</span>
+                        </div>
+                    </div>
+                    <div class="body-comment pt-4  w-100">
+                        <p>
+                            ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربر
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-md-3"></div>
+    </div>
 
 
 

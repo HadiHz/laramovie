@@ -86,6 +86,8 @@ Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/' , 'HomeController@index')->name('home');
 
+    Route::get('/search' , 'HomeController@search')->name('search');
+
     Route::get('/movies' , 'MovieController@index')->name('frontend.movies.index');
     Route::get('/movies/{slug}' , 'MovieController@single')->name('frontend.movies.single');
 
