@@ -7,7 +7,7 @@
             <tr>
                 <th scope="col">شماره</th>
                 <th scope="col">عکس</th>
-                <th scope="col">نام فیلم</th>
+                <th scope="col">نام سریال</th>
                 <th scope="col">ژانر</th>
                 <th scope="col">تاریخ انتشار</th>
                 <th scope="col">عملیات</th>
@@ -15,27 +15,27 @@
             </thead>
             <tbody>
             <?php $i = 1; ?>
-            @if($movies && count($movies) > 0)
-                @foreach($movies as $movie)
+            @if($serials && count($serials) > 0)
+                @foreach($serials as $serial)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <th scope="row"><img src="{{ $movie->image }}" alt="..." class="img-thumbnail"
+                        <th scope="row"><img src="{{ $serial->image }}" alt="..." class="img-thumbnail"
                                              style="width:4rem;height:4rem;"></th>
-                        <td>{{ $movie->name }}</td>
+                        <td>{{ $serial->name }}</td>
                         <td>
-                        @foreach($movie->genres as $genre)
-                            {{ $genre->name }}،
-                        @endforeach
+                            @foreach($serial->genres as $genre)
+                                {{ $genre->name }}&nbsp;
+                            @endforeach
                         </td>
-                        <td>{{ $movie->created_at }}</td>
+                        <td>{{ $serial->created_at->todatestring() }}</td>
 
                         <td>
-                            <a href="{{ route('frontend.movies.single' , $movie->slug) }}" class="btn btn-success">مشاهده</a>
-                            <a href="{{ route('admin.movies.delete' , $movie->id) }}"
+                            <a href="{{ route('frontend.serials.single' , $serial->slug) }}" class="btn btn-success">مشاهده</a>
+                            <a href="{{ route('admin.serials.delete' , $serial->id) }}"
                                onclick="return confirm('آیا مطمئن هستید؟')" class="btn btn-danger  mt-2 mb-2">حذف</a>
-                            <a href="{{ route('admin.movies.edit' , $movie->id) }}" class="btn btn-warning ">ویرایش</a>
-                            <a href="{{ route('admin.movies.sync_download_links' , $movie->id) }}"
-                               class="btn btn-info ">لینک های دانلود</a>
+                            <a href="{{ route('admin.serials.edit' , $serial->id) }}" class="btn btn-warning ">ویرایش</a>
+                            <a href="{{ route('admin.serials.sync_seasons' , $serial->id) }}"
+                               class="btn btn-info ">فصل ها</a>
                         </td>
                     </tr>
                 @endforeach
@@ -50,7 +50,7 @@
 
             </tbody>
         </table>
-        {{ $movies->links() }}
+        {{ $serials->links() }}
 
 
     </div>

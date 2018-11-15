@@ -15,6 +15,12 @@ class Serial extends Model
 
     protected $guarded = ['id'];
 
+    protected $dates = ['release_date'];
+
+    protected $casts = [
+        'release_date' => 'datetime:Y-m-d',
+    ];
+
     public function actors()
     {
         return $this->morphToMany(Actor::class , 'producible','actor_products','producible_id' , 'actor_id');
@@ -23,6 +29,12 @@ class Serial extends Model
     public function directors()
     {
         return $this->morphToMany(Director::class , 'producible','director_products','producible_id' , 'director_id');
+    }
+
+
+    public function writers()
+    {
+        return $this->morphToMany(Writer::class , 'producible','writer_products','producible_id' , 'writer_id');
     }
 
     public function countries()

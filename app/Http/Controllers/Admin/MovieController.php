@@ -10,7 +10,6 @@ use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Subtitle;
 use App\Models\Writer;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;

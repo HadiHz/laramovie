@@ -12,6 +12,7 @@
                 </div>
                 <div class="col-12 col-md-7 mt-4 w-100">
                     <form class="form-inline my-2 my-lg-0 w-100 mr-5" action="{{ route('search') }}" method="get">
+                        {{ csrf_field() }}
                         <input name="search" class="form-control mr-sm-2 w-75" type="search" placeholder="عبارت برای جستجو را وارد کنید" aria-label="Search">
                         <button class="btn btn-info my-2 my-sm-0" type="submit">جستجو</button>
                     </form>
