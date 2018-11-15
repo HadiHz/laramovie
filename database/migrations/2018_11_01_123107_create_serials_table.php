@@ -17,6 +17,8 @@ class CreateSerialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->double('rate');
+            $table->string('duration');
+            $table->string('language');
             $table->text('summary');
             $table->string('header_title',255);
             $table->string('subheader_title',255);

@@ -10,6 +10,17 @@
 </div>
 
 <div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
+    <a href="{{ route('admin.serials.create') }}">
+        <span class="text-light ">افزودن سریال</span>
+    </a>
+</div>
+<div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
+    <a href="{{ route('admin.serials.list') }}">
+        <span class="text-light ">مشاهده ی سریال های منتشر شده</span>
+    </a>
+</div>
+
+<div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
     <a href="{{ route('admin.genres.create') }}">
         <span class="text-light ">افزودن ژانر</span>
     </a>

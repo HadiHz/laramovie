@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::post('/serials/edit/{id}', 'SerialController@update')->name('admin.serials.update');
     Route::get('/serials/delete/{id}', 'SerialController@delete')->name('admin.serials.delete');
 
+    Route::get('/serials/{serial_id}/sync-seasons' , 'SerialController@syncSeasons')->name('admin.serials.sync_seasons');
+
 
     //genre routes
     Route::get('/genres' , 'GenreController@index')->name('admin.genres.list');
@@ -90,6 +92,12 @@ Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/movies' , 'MovieController@index')->name('frontend.movies.index');
     Route::get('/movies/{slug}' , 'MovieController@single')->name('frontend.movies.single');
+
+
+
+    Route::get('/serials' , 'SerialController@index')->name('frontend.serials.index');
+    Route::get('/serials/{slug}' , 'SerialController@single')->name('frontend.serials.single');
+
 
 
 
