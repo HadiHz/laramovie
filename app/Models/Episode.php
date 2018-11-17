@@ -8,9 +8,11 @@ class Episode extends Model
 {
     protected $guarded = ['id'];
 
+    protected $dates = ['release_date'];
+
     public function subtitles()
     {
-        return $this->morphMany(Subtitle::class, 'producible' , 'producible_type' , 'producible_type');
+        return $this->morphMany(Subtitle::class, 'producible' , 'producible_type' , 'producible_id');
     }
 
     public function download_links()
