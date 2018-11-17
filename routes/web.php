@@ -48,6 +48,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::get('/serials/delete/{id}', 'SerialController@delete')->name('admin.serials.delete');
 
     Route::get('/serials/{serial_id}/sync-seasons' , 'SerialController@syncSeasons')->name('admin.serials.sync_seasons');
+    Route::post('/serials/{serial_id}/sync-seasons' , 'SerialController@updateSyncSeasons')->name('admin.serials.sync_seasons');
+
+    Route::get('/serials/{serial_id}/sync-seasons/{season_id}' , 'SerialController@syncEpisodes')->name('admin.serials.sync_episodes');
+    Route::post('/serials/{serial_id}/sync-seasons/{season_id}' , 'SerialController@updateSyncEpisodes')->name('admin.serials.sync_episodes');
+
+    Route::get('/serials/{serial_id}/sync-seasons/{season_id}/download-links/{episode_id}' , 'SerialController@syncDonloadLinksForEpisode')->name('admin.serials.sync_episode_download');
+    Route::post('/serials/{serial_id}/sync-seasons/{season_id}/download-links/{episode_id}' , 'SerialController@updateSyncDonloadLinksForEpisode')->name('admin.serials.sync_episode_download');
+
+
+
 
 
     //genre routes

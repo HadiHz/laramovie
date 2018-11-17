@@ -18,7 +18,7 @@ class CreateSeasonsTable extends Migration
             $table->integer('serial_id');
             $table->integer('season_number');
             $table->integer('number_of_episodes');
-            $table->dateTime('release_date');
+            $table->dateTime('release_date')->nullable();
             $table->timestamps();
         });
     }

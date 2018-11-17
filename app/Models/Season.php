@@ -8,6 +8,8 @@ class Season extends Model
 {
     protected $guarded = ['id'];
 
+    protected $dates = ['release_date'];
+
     public function serial()
     {
         return $this->belongsTo(Serial::class , 'serial_id');
