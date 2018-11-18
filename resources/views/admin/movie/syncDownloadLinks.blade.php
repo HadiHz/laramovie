@@ -2,57 +2,80 @@
 @section('content')
 
     @include('admin.partials.errors')
-
-
-    <p>
-        <a href="#" class="add_download_item">اضافه کردن آیتم برای دانلود</a>
-    </p>
-
-
-
-
     <form method="post">
         {{ csrf_field() }}
-        <div class="download-wrapper">
+        <div class="row pr-3 pl-3">
 
-            @foreach($downloadLinks as $link)
-                <div class="input-group">
-                    <input dir="ltr" type="text" name="downloadLinks[]" class="form-control"
-                           placeholder="لینک دانلود فیلم" value="{{ $link->link }}">
-                    <input dir="ltr" type="text" name="downloadLinksScreen[]" class="form-control"
-                           placeholder="لینک اسکرین شات" value="{{ $link->screenshot_link }}">
-                    <input dir="ltr" type="text" name="downloadLinksQuality[]" class="form-control"
-                           placeholder="کیفیت لینک دانلود" value="{{ $link->quality_name }}">
-                    <input type="hidden" name="download_link_id[]" value="{{ $link->id }}">
-                    <a href="#" class="remove_download_item">حذف</a>
-                </div>
-            @endforeach
+            <button id="add_download_link" type="button" class="btn btn-primary ml-3">اضافه کردن لینک دانلود</button>
+
+            <div class="form-group col-md-12 d-inline-block download_wrapper">
+                @foreach($download_links as $link)
+                    <div class="row mb-3 mt-3 pr-3 pl-3 ">
+
+                        <div class="col-md-3 d-inline-block pl-0">
+                            <label for="inputDownloaQuality1" class=" text-dark d-inline-block  col-form-label">
+                                کیفیت لینک دانلود : </label>
+                            <input name="downloadLinksQuality[]" type="text" class="form-control  d-inline-block w-50" id="inputDownloaQuality1"
+                                   placeholder="" value="{{ $link->quality_name }}">
+                        </div>
+                        <div class="col-md-3 d-inline-block pl-0 pr-0">
+                            <label for="inputDownloaQuality1" class=" text-dark d-inline-block  col-form-label">
+                                لینک دانلود : </label>
+                            <input name="downloadLinks[]" type="text" class="form-control  d-inline-block w-50" id="inputDownloaQuality1"
+                                   placeholder="" value="{{ $link->link }}">
+                        </div>
+                        <div class="col-md-3 d-inline-block pl-0 pr-0">
+                            <label for="inputDownloaQuality1" class=" text-dark d-inline-block  col-form-label">
+                                اسکرین شات : </label>
+                            <input name="downloadLinksScreen[]" type="text" class="form-control  d-inline-block w-50" id="inputDownloaQuality1"
+                                   placeholder="" value="{{ $link->screenshot_link }}">
+                            <input type="hidden" name="download_link_id[]" value="{{ $link->id }}">
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <button type="button" class="btn btn-danger remove_download_link">حذف لینک دانلود</button>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+
 
         </div>
 
-        <br>
-        <hr>
 
-        <p>
-            <a href="#" class="add_subtitle_item">اضافه کردن آیتم برای زیرنویس</a>
-        </p>
+        <div class="row pr-3 mt-5 pl-3">
+            <button id="add_subtitle" type="button" class="btn btn-primary ml-3">اضافه کردن لینک دانلود زیر نویس
+            </button>
 
-        <div class="subtitle-wrapper">
+            <div class="form-group col-md-12 d-inline-block subtitle_wrapper">
+                @foreach($subtitles as $subtitle)
+                    <div class="row mb-3 mt-3 pr-3 pl-3">
+                        <div class="col-md-6 d-inline-block pl-0">
+                            <label for="inputDownloaQuality1" class=" text-dark d-inline-block  col-form-label">لینک
+                                دانلود زیرنویس : </label>
+                            <input type="text" name="subtitleDownloadLinks[]" class="form-control  d-inline-block w-50"
+                                   id="inputDownloaQuality1"
+                                   placeholder="" value="{{ $subtitle->download_link }}">
+                            <input type="hidden" name="subtitle_id[]" value="{{ $subtitle->id }}">
+                        </div>
 
-            @foreach($subtitles as $subtitle)
-                <div class="input-group">
-                    <input dir="ltr" type="text" name="subtitleDownloadLinks[]" class="form-control"
-                           placeholder="لینک دانلود زیرنویس" value="{{ $subtitle->download_link }}">
-                    <input type="hidden" name="subtitle_id[]" value="{{ $subtitle->id }}">
-                    <a href="#" class="remove_subtitle_item">حذف</a>
-                </div>
-            @endforeach
+
+                        <div class="col-12 col-md-3">
+                            <button type="button" class="btn btn-danger remove_subtitle">حذف لینک دانلود زیرنویس
+                            </button>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+
 
         </div>
 
 
+        <div class="row mt-5 float-left ml-4">
+            <button type="submit" class="btn btn-success">ذخیره اطلاعات</button>
+        </div>
 
-
-        <input class="btn btn-primary" type="submit" value="ذخیره ی اطلاعات">
     </form>
 @endsection

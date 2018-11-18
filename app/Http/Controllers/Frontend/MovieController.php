@@ -29,4 +29,18 @@ class MovieController extends Controller
         return view('frontend.movie.single' , compact('movieItem' , 'numberOfGenres',
             'numberOfDirectors' , 'numberOfActors', 'numberOfWriters' , 'numberOfCountries'));
     }
+
+
+    public function iranianMovies()
+    {
+        $movies = Movie::where('language' , 'فارسی')->orderBy('updated_at', 'DESC')->paginate(15);
+        return view('frontend.movie.index' , compact('movies'));
+    }
+
+    public function foreignMovies()
+    {
+        $movies = Movie::where('language' , '<>' , 'فارسی')->orderBy('updated_at', 'DESC')->paginate(15);
+        return view('frontend.movie.index' , compact('movies'));
+    }
+
 }

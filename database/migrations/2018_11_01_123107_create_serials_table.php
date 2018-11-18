@@ -25,6 +25,7 @@ class CreateSerialsTable extends Migration
             $table->integer('number_of_seasons');
             $table->dateTime('release_date');
             $table->string('image',255);
+            $table->string('image_alt');
             $table->string('slug');
             $table->string('meta_keywords',250);
             $table->timestamps();

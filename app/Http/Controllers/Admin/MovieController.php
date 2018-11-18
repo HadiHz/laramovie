@@ -47,6 +47,7 @@ class MovieController extends Controller
             'summary' => 'required',
             'meta_keywords' => 'required',
             'image' => 'required',
+            'image_alt' => 'required',
 
         ]);
 
@@ -69,6 +70,7 @@ class MovieController extends Controller
             'release_year' => request()->input('release_year'),
             'summary' => request()->input('summary'),
             'meta_keywords' => request()->input('meta_keywords'),
+            'image_alt' => request()->input('image_alt'),
             'image' => $imagePath,
 
         ];
@@ -180,6 +182,7 @@ class MovieController extends Controller
             'release_year' => 'required',
             'summary' => 'required',
             'meta_keywords' => 'required',
+            'image_alt' => 'required',
 
         ]);
 
@@ -211,6 +214,7 @@ class MovieController extends Controller
                     'release_year' => request()->input('release_year'),
                     'summary' => request()->input('summary'),
                     'meta_keywords' => request()->input('meta_keywords'),
+                    'image_alt' => request()->input('image_alt'),
                     'image' => $imagePath,
                 ]);
             }
@@ -226,6 +230,7 @@ class MovieController extends Controller
                 'release_year' => request()->input('release_year'),
                 'summary' => request()->input('summary'),
                 'meta_keywords' => request()->input('meta_keywords'),
+                'image_alt' => request()->input('image_alt'),
             ]);
         }
 
@@ -335,11 +340,11 @@ class MovieController extends Controller
     public function syncDownloadLinks(Request $request, $id)
     {
         $movieItem = Movie::find($id);
-        $downloadLinks = $movieItem->download_links()->get();
+        $download_links = $movieItem->download_links()->get();
         $subtitles = $movieItem->subtitles()->get();
 
 //        dd($downloadLinks);
-        return view('admin.movie.syncDownloadLinks', compact('downloadLinks', 'subtitles'));
+        return view('admin.movie.syncDownloadLinks', compact('download_links', 'subtitles'));
     }
 
     public function updateSyncDownloadLinks(Request $request, $id)

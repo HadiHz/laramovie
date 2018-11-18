@@ -21,7 +21,7 @@
 @yield('newFilm')
 
 <!-- START SECTION ADVERTISE -->
-@include('frontend.partials.advertisments')
+@include('frontend.partials.advertisements')
 <!-- END SECTION ADVERTISE -->
 
 
@@ -31,29 +31,17 @@
             <div class="col-12 col-md-2 shadow w-100 pl-0 pr-0 sidebar-right">
                 <div class="film-genre w-100 text-right">
                     <div class="title-film-genre  mr-2 ml-2 pt-3 pr-3 shadow-sm">
-                        <span class="pb-3 d-inline-block "><img src="/img/menu.png" alt=""></span><span class="mr-1">دسته بندی</span>
+                        <span class="pb-3 d-inline-block "><img src="/img/menu.png" alt=""></span><span class="mr-1">ژانر ها</span>
                     </div>
                     <div class="body-genre-film">
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
-                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>تاریخی</span></div>
+                        @foreach($genres as $genre)
+
+                            <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                            src="/img/video.png" alt=""></span><a
+                                        href="{{ route('frontend.genres.index' ,$genre->slug) }}"><span>{{ $genre->name }}</span></a>
+                            </div>
+                        @endforeach
+
 
                     </div>
 
@@ -90,56 +78,37 @@
             <div class="col-12 col-md-3 sidebar-left bg-light shadow">
                 <div class="new-film w-100 text-right">
                     <div class="title-new-film pt-3 pr-3 shadow-sm">
-                        <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین فیلم های خارجی</span>
+                        <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین فیلم ها</span>
                     </div>
                     <div class="body-new-list-film">
-                        <div class="new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
+
+                        @foreach($latestMovies as $latestMovie)
+                            <div class="new-film-item  pt-3 pb-3 pr-4">
+                                <a href="{{ route('frontend.movies.single' , $latestMovie->slug) }}"><span>{{ $latestMovie->header_title }}</span></a>
+                            </div>
+                        @endforeach
+
+
                     </div>
 
                 </div>
 
                 <div class="new-film w-100 mt-5 text-right">
                     <div class="title-new-film pt-3 mt-2 pr-3 shadow-sm">
-                        <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین فیلم های خارجی</span>
+                        <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین سریال ها</span>
                     </div>
                     <div class="body-new-list-film">
-                        <div class="new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
-                        <div class=" new-film-item  pt-3 pb-3 pr-4">
-                            <span>دانلود سریال ساخت ایران 2 با کیفیت Full HD</span></div>
+                        @foreach($latestSerials as $latestSerial)
+                            <div class="new-film-item  pt-3 pb-3 pr-4">
+                                <a href="{{ route('frontend.movies.single' , $latestSerial->slug) }}"><span>{{ $latestSerial->header_title }}</span></a>
+                            </div>
+                        @endforeach
+
                     </div>
 
                 </div>
 
             </div>
-
 
 
         </div>

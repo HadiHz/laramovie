@@ -24,9 +24,9 @@
                         <?php $i = 0 ?>
                         @foreach($movieItem->genres as $genre)
                             @if($i == $numberOfGenres - 1 )
-                                <span><a href="#">{{ $genre->name }}</a></span>
+                                <span><a href="{{ route('frontend.genres.index' ,$genre->slug) }}">{{ $genre->name }}</a></span>
                             @else
-                                <span><a href="#">{{ $genre->name }}</a></span>،
+                                <span><a href="{{ route('frontend.genres.index' ,$genre->slug) }}">{{ $genre->name }}</a></span>،
                             @endif
                             <?php $i++ ?>
                         @endforeach
@@ -90,7 +90,7 @@
                         <span class="field-film">تاریخ اکران  : </span> <span>{{ $movieItem->release_year }}</span></p>
                 </div>
                 <div class="col-12 col-md-5 text-center mt-3">
-                    <img src="{{ $movieItem->image }}" class="img-fluid" alt="">
+                    <img src="{{ $movieItem->image }}" class="img-fluid" alt="{{ $movieItem->image_alt }}">
                 </div>
             </div>
             <div class="row pr-3 mt-3 pl-3">
