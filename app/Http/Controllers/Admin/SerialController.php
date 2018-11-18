@@ -53,6 +53,7 @@ class SerialController extends Controller
             'summary' => 'required',
             'meta_keywords' => 'required',
             'image' => 'required',
+            'image_alt' => 'required',
             'number_of_seasons' => 'required',
 
         ]);
@@ -77,7 +78,8 @@ class SerialController extends Controller
             'summary' => request()->input('summary'),
             'meta_keywords' => request()->input('meta_keywords'),
             'image' => $imagePath,
-            'number_of_seasons' => request()->input('number_of_seasons')
+            'image_alt' => request()->input('image_alt'),
+            'number_of_seasons' => request()->input('number_of_seasons'),
 
         ];
 
@@ -195,6 +197,7 @@ class SerialController extends Controller
             'summary' => 'required',
             'meta_keywords' => 'required',
             'number_of_seasons' => 'required',
+            'image_alt' => 'required',
 
         ]);
 
@@ -227,7 +230,8 @@ class SerialController extends Controller
                     'summary' => request()->input('summary'),
                     'meta_keywords' => request()->input('meta_keywords'),
                     'image' => $imagePath,
-                    'number_of_seasons' => request()->input('number_of_seasons')
+                    'image_alt' => request()->input('image_alt'),
+                    'number_of_seasons' => request()->input('number_of_seasons'),
                 ]);
             }
 
@@ -242,6 +246,7 @@ class SerialController extends Controller
                 'release_date' => Carbon::createFromFormat('Y-m-d', request()->input('release_date')),
                 'summary' => request()->input('summary'),
                 'meta_keywords' => request()->input('meta_keywords'),
+                'image_alt' => request()->input('image_alt'),
                 'number_of_seasons' => request()->input('number_of_seasons')
             ]);
         }

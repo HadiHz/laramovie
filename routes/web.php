@@ -102,13 +102,19 @@ Route::group(['namespace' => 'Frontend'],function (){
 
     Route::get('/movies' , 'MovieController@index')->name('frontend.movies.index');
     Route::get('/movies/{slug}' , 'MovieController@single')->name('frontend.movies.single');
+    Route::get('/iranian-movies' , 'MovieController@iranianMovies')->name('frontend.movies.iranian');
+    Route::get('/foreign-movies' , 'MovieController@foreignMovies')->name('frontend.movies.foreign');
 
 
 
     Route::get('/serials' , 'SerialController@index')->name('frontend.serials.index');
     Route::get('/serials/{slug}' , 'SerialController@single')->name('frontend.serials.single');
+    Route::get('/iranian-serials' , 'SerialController@iranianSerials')->name('frontend.serials.iranian');
+    Route::get('/foreign-serials' , 'SerialController@foreignSerials')->name('frontend.serials.foreign');
 
 
+
+    Route::get('/genres/{slug}' , 'GenreController@index')->name('frontend.genres.index');
 
 
     //uri in bayad ye giri dashte bashe

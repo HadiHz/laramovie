@@ -13,10 +13,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        $m =new Movie();
-//        $m = $m->findBySlug('film1-2018');
-////        dd(str_slug($m->name));
-//        dd($m->name);
+       $movies = Movie::all();
+       $serials = Serial::all();
+       $allResults = $movies->concat($serials)->sortByDesc('updated_at')->paginate(15);
+       $newPosts = $movies->concat($serials)->sortByDesc('updated_at')->take(7);
+
+
+       return view('frontend.home.index', compact('allResults' , 'newPosts'));
     }
 
     public function search(Request $request)
@@ -45,5 +48,12 @@ class HomeController extends Controller
 
         return view('frontend.home.index', compact('allResults'));
     }
+
+
+    public function postsByYear(Request $request , $year)
+    {
+
+    }
+
 
 }

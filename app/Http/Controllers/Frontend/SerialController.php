@@ -28,4 +28,19 @@ class SerialController extends Controller
         return view('frontend.serial.single' , compact('serialItem' , 'numberOfGenres',
             'numberOfDirectors' , 'numberOfActors', 'numberOfWriters' , 'numberOfCountries'));
     }
+
+
+    public function iranianSerials()
+    {
+        $serials = Serial::where('language' , 'فارسی')->orderBy('updated_at', 'DESC')->paginate(15);
+        return view('frontend.serial.index' , compact('serials'));
+    }
+
+    public function foreignSerials()
+    {
+        $serials = Serial::where('language' , '<>' , 'فارسی')->orderBy('updated_at', 'DESC')->paginate(15);
+        return view('frontend.serial.index' , compact('serials'));
+    }
+
+
 }

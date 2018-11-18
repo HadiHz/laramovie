@@ -120,6 +120,15 @@
         <label class="custom-file-label text-center mb-3" for="customFile">انتخاب تصویر شاخص</label>
 
     </div>
+
+    <div class="form-group col-md-5 d-inline-block">
+        <label for="image_alt" class="text-dark col-form-label">صفت  alt برای تصویر : </label>
+        <div class="col-md-6 d-inline-block">
+            <input type="text" name="image_alt" class="form-control" id="image_alt"
+                   value="{{ old('image_alt',isset($movieItem) ? $movieItem->image_alt: '')  }}">
+        </div>
+    </div>
+
     <div class="form-group mt-3">
         <label for="preview">پیش نمایش تصویر</label>
 
