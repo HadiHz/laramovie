@@ -1,6 +1,6 @@
-@if($movieItem->comments && count($movieItem->comments) > 0)
+@if($item->comments && count($item->comments) > 0)
 
-    @foreach($movieItem->comments->where('status', 2) as $comment)
+    @foreach($item->comments->where('status', 2) as $comment)
 
         @include('frontend.comment.item',$comment)
 

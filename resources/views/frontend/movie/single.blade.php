@@ -141,11 +141,18 @@
             <a href="http://p30mororgar.ir/firefox/how-to-enable-idm-in-firefox/"> آموزش فعال کردن دانلود منیجر برای فایرفاکس</a></p>
         <p>3 - درصورت خرابی لینک ها کافیست به فول فیلم اطلاع دهید تا در سریع ترین زمان ممکن لینک دانلود سالم را برای شما کاربران فول فیلم تهیه نماییم . </p>
     </div>
+@endsection
 
 
+@section('helpDownload')
+    @include('frontend.partials.helpDownload')
+@endsection
 
-    @include('frontend.comment.form',$movieItem)
-    @include('frontend.comment.list',$movieItem)
+
+@section('comment')
+
+    @include('frontend.comment.form',['item' => $movieItem,'flag' => 1])
+    @include('frontend.comment.list',['item' => $movieItem])
 
 
 
