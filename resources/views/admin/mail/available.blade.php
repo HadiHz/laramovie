@@ -7,7 +7,7 @@
     </p>
 
 
-@component('mail::button', ['url' => 'http://roocket.ir'])
+@component('mail::button', ['url' => 'http://www.fullfilm2.com'])
         ورود به سایت
 @endcomponent
 
