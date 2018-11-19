@@ -83,9 +83,10 @@
     <div class="form-group col-md-5 d-inline-block">
         <label for="release_date" class="text-dark col-form-label">تاریخ اکران : </label>
         <div class="col-md-6 d-inline-block">
-            <input type="text" name="release_date" class="form-control" id="release_date"
-                   value="{{ old('release_date',isset($serialItem) ? $serialItem->release_date->todatestring() : '')  }}">
+            <input type="text" data-field="date" name="release_date" class="form-control" id="release_date"
+                   value="{{ old('release_date',isset($serialItem) ? $serialItem->release_date->format('d-m-Y') : '')  }}" >
         </div>
+        <div id="dtBox"></div>
     </div>
     <div class="form-group col-md-5 d-inline-block">
         <label for="number_of_seasons" class="text-dark col-form-label">تعداد فصل ها : </label>

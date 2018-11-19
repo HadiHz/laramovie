@@ -93,7 +93,7 @@ class CommentController extends Controller
         $removeResult = Comment::destroy([$id]);
 
         if($removeResult){
-            return Redirect::route('admin.comments.list')->with('success','پاسخ مورد نظر شما حذف شد');
+            return Redirect::route('admin.comments.list')->with('success','کامنت مورد نظر  حذف شد');
         }
     }
 }

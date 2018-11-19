@@ -74,7 +74,7 @@ class SerialController extends Controller
             'subheader_title' => request()->input('subheader_title'),
             'duration' => request()->input('duration'),
             'language' => request()->input('language'),
-            'release_date' => Carbon::createFromFormat('Y-m-d', request()->input('release_date')),
+            'release_date' => Carbon::createFromFormat('d-m-Y', request()->input('release_date')),
             'summary' => request()->input('summary'),
             'meta_keywords' => request()->input('meta_keywords'),
             'image' => $imagePath,
@@ -226,7 +226,7 @@ class SerialController extends Controller
                     'subheader_title' => request()->input('subheader_title'),
                     'duration' => request()->input('duration'),
                     'language' => request()->input('language'),
-                    'release_date' => Carbon::createFromFormat('Y-m-d', request()->input('release_date')),
+                    'release_date' => Carbon::createFromFormat('d-m-Y', request()->input('release_date')),
                     'summary' => request()->input('summary'),
                     'meta_keywords' => request()->input('meta_keywords'),
                     'image' => $imagePath,
@@ -243,7 +243,7 @@ class SerialController extends Controller
                 'subheader_title' => request()->input('subheader_title'),
                 'duration' => request()->input('duration'),
                 'language' => request()->input('language'),
-                'release_date' => Carbon::createFromFormat('Y-m-d', request()->input('release_date')),
+                'release_date' => Carbon::createFromFormat('d-m-Y', request()->input('release_date')),
                 'summary' => request()->input('summary'),
                 'meta_keywords' => request()->input('meta_keywords'),
                 'image_alt' => request()->input('image_alt'),
@@ -501,7 +501,7 @@ class SerialController extends Controller
                         'season_id' => $season_id,
                         'episode_number' => $episode_number[$counter],
                         'name' => $name[$counter],
-                        'release_date' => Carbon::createFromFormat('Y-m-d', $release_date[$counter]),
+                        'release_date' => Carbon::createFromFormat('d-m-Y', $release_date[$counter]),
                     ]);
                     $ep->touch();  // this code updates updated_at
                     $counter++;
@@ -523,7 +523,7 @@ class SerialController extends Controller
                 $episode->season_id = $season_id;
                 $episode->episode_number = $episode_number[$i];
                 $episode->name = $name[$i];
-                $episode->release_date = Carbon::createFromFormat('Y-m-d', $release_date[$counter]);
+                $episode->release_date = Carbon::createFromFormat('d-m-Y', $release_date[$counter]);
                 $season->episodes()->save($episode);
             }
         }

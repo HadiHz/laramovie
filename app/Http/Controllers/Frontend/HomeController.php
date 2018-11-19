@@ -50,11 +50,6 @@ class HomeController extends Controller
     }
 
 
-    public function postsByYear(Request $request , $year)
-    {
-
-    }
-
 
     public function aboutUs()
     {

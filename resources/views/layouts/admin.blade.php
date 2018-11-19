@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/themify-icons.css">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/DateTimePicker.css" />
     <title>Hello, world!</title>
 </head>
 <body>
@@ -36,5 +37,6 @@
 <script src="/js/custom-admin.js"></script>
 <script src="/js/nav.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/DateTimePicker.js"></script>
 </body>
 </html>
