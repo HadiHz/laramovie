@@ -18,6 +18,8 @@ class HomeController extends Controller
        $allResults = $movies->concat($serials)->sortByDesc('updated_at')->paginate(15);
        $newPosts = $movies->concat($serials)->sortByDesc('updated_at')->take(7);
 
+       $newPosts = $newPosts->values();
+
 
        return view('frontend.home.index', compact('allResults' , 'newPosts'));
     }

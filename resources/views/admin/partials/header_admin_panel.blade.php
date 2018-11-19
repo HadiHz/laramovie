@@ -7,6 +7,12 @@
                         پنل مدیریت فول فیلم
                     </div>
                 </div>
+                <div class="col-12 col-md-1 text-center">
+
+                        <a style="margin-top: 7px;" class="btn btn-outline-success" href="{{ route('logout') }}" > خروج </a>
+
+                </div>
+
             </div>
         </div>
     </div>
