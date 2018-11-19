@@ -76,7 +76,7 @@
 
 
             <div class="col-12 col-md-3 sidebar-left bg-light shadow">
-                <div class="new-film w-100 text-right">
+                <div class="new-film w-100 text-right bg-light">
                     <div class="title-new-film pt-3 pr-3 shadow-sm">
                         <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین فیلم ها</span>
                     </div>
@@ -93,7 +93,7 @@
 
                 </div>
 
-                <div class="new-film w-100 mt-5 text-right">
+                <div class="new-film w-100 text-right bg-light">
                     <div class="title-new-film pt-3 mt-2 pr-3 shadow-sm">
                         <span class="pb-3 d-inline-block "><img src="/img/layers.png" alt=""></span><span class="mr-1">آخرین سریال ها</span>
                     </div>
@@ -110,6 +110,8 @@
 
             </div>
 
+            @yield('helpDownload')
+            @yield('comment')
 
         </div>
 

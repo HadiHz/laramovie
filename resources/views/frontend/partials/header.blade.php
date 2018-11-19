@@ -4,7 +4,7 @@
         <div class="container clearfix ">
             <div class="row">
                 <div class="col-12 col-md-2 mt-2 pl-0">
-                    <a href="#" class="navbar-brand float-right"><img class="logo mr-5" src="/img/film-png-7.png" alt="roocket"></a>
+                    <a href="{{ route('home') }}" class="navbar-brand float-right"><img class="logo mr-5" src="/img/film-png-7.png" alt="roocket"></a>
                 </div>
                 <div class="col-12 col-md-3 mt-4 text-center">
                     <span class="text-light">به فول فیلم خوش آمدید </span>
@@ -40,14 +40,13 @@
                     <div class="collapse navbar-collapse float-left" id="navbar">
                         <ul class="navbar-nav">
 
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود فیلم ایرانی</span> </a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود فیلم ایرانی</span> </a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود فیلم ایرانی</span> </a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود فیلم خارجی</span> </a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود سریال ایرانی</span> </a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">دانلود سریال خارجی</span></a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">درباره ما</span></a></li>
-                            <li class="nav-item"> <a class="nav-link active text-dark" href="teach-math.php"><span class="text-top-menu">تماس با ما</span></a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.movies.iranian') }}"><span class="text-top-menu">فیلم ایرانی</span> </a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.movies.foreign') }}"><span class="text-top-menu">فیلم خارجی</span> </a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.serials.iranian') }}"><span class="text-top-menu">سریال ایرانی</span> </a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.serials.foreign') }}"><span class="text-top-menu">سریال خارجی</span> </a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.film_request') }}"><span class="text-top-menu">درخواست فیلم و سریال</span> </a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.about_us') }}"><span class="text-top-menu">درباره ما</span></a></li>
+                            <li class="nav-item"> <a class="nav-link active text-dark" href="{{ route('frontend.contact_us') }}"><span class="text-top-menu">تماس با ما</span></a></li>
 
 
                         </ul>

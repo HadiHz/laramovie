@@ -129,12 +129,15 @@ Route::group(['namespace' => 'Frontend'],function (){
 
 
     //Request Routes
-    Route::get('/film_request', 'FilmRequestController@index')->name('index');
+    Route::get('/film_request', 'FilmRequestController@index')->name('frontend.film_request');
     Route::post('/film_request/store' , 'FilmRequestController@store')->name('frontend.film_request.store');
 
 
     //contact us
-    Route::get('/contact_us', 'Contact_usController@index')->name('index');
+    Route::get('/contact_us', 'Contact_usController@index')->name('frontend.contact_us');
     Route::post('/contact_us/store' , 'Contact_usController@store')->name('frontend.contact_us.store');
+
+
+    Route::get('/about_us' , 'HomeController@aboutUs')->name('frontend.about_us');
 
 });

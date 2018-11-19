@@ -56,4 +56,10 @@ class HomeController extends Controller
     }
 
 
+    public function aboutUs()
+    {
+        return view('frontend.about_us.index');
+    }
+
+
 }
