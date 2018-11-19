@@ -93,7 +93,7 @@ jQuery(document).ready(function ($) {
             '                                <td>'+ seasonNum +'</td>\n' +
             '                                <td><input name="episode_number[]" type="text" ></td>\n' +
             '                                <td><input name="name[]" type="text" ></td>\n' +
-            '                                <td><input name="release_date[]" type="text"></td>\n' +
+            '                                <td><input name="release_date[]" data-field="date" type="text"></td>\n' +
             '                                <td>\n' +
             '                                    <button type="button" class="btn btn-danger mt-2 mb-2 remove_episode">حذف</button>\n' +
             '                                </td>\n' +
@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-
+    $("#dtBox").DateTimePicker();
 
 });
 

@@ -52,15 +52,55 @@
                     </div>
                     <div class="body-genre-film">
                         <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>2018</span></div>
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1993) }}" ><span>1993</span></a></div>
                         <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>2018</span></div>
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1994) }}" ><span>1994</span></a></div>
                         <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>2018</span></div>
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1995) }}" ><span>1995</span></a></div>
                         <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>2018</span></div>
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1996) }}" ><span>1996</span></a></div>
                         <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
-                                        src="/img/clapperboard%20(1).png" alt=""></span><span>2018</span></div>
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1997) }}" ><span>1997</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1998) }}" ><span>1998</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 1999) }}" ><span>1999</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2000) }}" ><span>2000</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2002) }}" ><span>2001</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2003) }}" ><span>2003</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2004) }}" ><span>2004</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2005) }}" ><span>2005</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2006) }}" ><span>2006</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2007) }}" ><span>2007</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2008) }}" ><span>2008</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2009) }}" ><span>2009</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2010) }}" ><span>2010</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2011) }}" ><span>2011</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2012) }}" ><span>2012</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2013) }}" ><span>2013</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2014) }}" ><span>2014</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2015) }}" ><span>2015</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2016) }}" ><span>2016</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2017) }}" ><span>2017</span></a></div>
+                        <div class=" genre-film-item  pt-3 pb-3 pr-4"><span class="d-inline-block ml-1"><img
+                                        src="/img/clapperboard%20(1).png" alt=""></span><a href="{{ route('frontend.movies.yaer' , 2018) }}" ><span>2018</span></a></div>
 
 
                     </div>
@@ -110,11 +150,11 @@
 
             </div>
 
-            @yield('helpDownload')
-            @yield('comment')
+
 
         </div>
-
+        @yield('helpDownload')
+        @yield('comment')
 
     </div>
 </div>

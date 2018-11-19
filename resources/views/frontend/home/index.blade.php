@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('newFilm')
+    @if(isset($newPosts))
     <!--START SECTION NEW FILM-->
     <div class="section-new-film pb-5">
         <div class="container ">
@@ -89,9 +90,11 @@
         </div>
     </div>
     <!--END SECTION NEW FILM-->
+    @endif
 @endsection
 
 @section('content')
+    @if(count($allResults) > 0 )
     @foreach($allResults as $result)
 
         @if($result instanceof \App\Models\Movie)
@@ -297,7 +300,7 @@
                             <p class="pr-3"><span><img src="/img/translation.png" alt=""></span>
                                 <span class="field-film">زبان  : </span><span>{{ $serial->language }}</span></p>
                             <p class="pr-3"><span><img src="/img/appointment.png" alt=""></span>
-                                <span class="field-film">تاریخ اکران  : </span> <span>{{ $serial->release_year }}</span>
+                                <span class="field-film">تاریخ اکران  : </span> <span>{{ $serial->release_date->format('d-m-Y') }}</span>
                             </p>
                             <p class="pr-3"><span><img src="/img/shield.png" alt=""></span>
                                 <span class="field-film">تعداد فصل  : </span><span>{{ $serial->number_of_seasons }}</span>
@@ -328,6 +331,11 @@
         @endif
 
     @endforeach
+    @else
+    <p>
+        متاسفانه نتیجه ای پیدا نشد.
+    </p>
+    @endif
 @endsection
 
 @section('pagination')

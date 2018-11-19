@@ -42,7 +42,7 @@
                                 <td>{{ $season->season_number }}</td>
                                 <td><input name="episode_number[]" type="text" value="{{ $episode->episode_number }}"></td>
                                 <td><input name="name[]" type="text" value="{{ $episode->name }}"></td>
-                                <td><input name="release_date[]" type="text" value="{{ $episode->release_date->todatestring() }}"></td>
+                                <td><input name="release_date[]" type="text" data-field="date" value="{{ $episode->release_date->format('d-m-Y') }}"></td>
                                 <td>
                                     <button type="button" class="btn btn-danger mt-2 mb-2 remove_episode">حذف</button>
                                     <a href="{{ route('admin.serials.sync_episode_download' , ['serial_id' => $serial->id, 'season_id' => $season->id , 'episode_id' => $episode->id]) }}" class="btn btn-info">لینک های دانلود</a>
@@ -56,6 +56,7 @@
                         </tbody>
                     </table>
 
+                    <div id="dtBox"></div>
 
                     <div class="row mt-5 float-left ml-4">
                         <button type="submit" class="btn btn-success">ذخیره اطلاعات</button>

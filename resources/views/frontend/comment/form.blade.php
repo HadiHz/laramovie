@@ -1,5 +1,6 @@
 <div class="row mt-3">
-    <div class="pr-0 pb-3 pl-0 bg-light w-100 shadow text-right">
+    <div class="col-12 col-md-2"></div>
+    <div class="col-12 col-md-7 bg-light pr-0 pb-3 pl-0 bg-light w-100 shadow text-right">
         <div class="comment-title pt-3 pb-3 mb-3 pr-2 pl-2  ">
             <span class="d-block">دیدگاه شما</span>
         </div>

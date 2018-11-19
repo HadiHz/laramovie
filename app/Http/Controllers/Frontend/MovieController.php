@@ -43,4 +43,11 @@ class MovieController extends Controller
         return view('frontend.movie.index' , compact('movies'));
     }
 
+    public function moviesByYear(Request $request , $year)
+    {
+        $movies = Movie::where('release_year' , $year)->orderBy('updated_at', 'DESC')->paginate(15);
+
+        return view('frontend.movie.index', compact('movies' ));
+    }
+
 }

@@ -109,6 +109,7 @@ Route::group(['namespace' => 'Frontend'],function (){
     Route::get('/movies/{slug}' , 'MovieController@single')->name('frontend.movies.single');
     Route::get('/iranian-movies' , 'MovieController@iranianMovies')->name('frontend.movies.iranian');
     Route::get('/foreign-movies' , 'MovieController@foreignMovies')->name('frontend.movies.foreign');
+    Route::get('/movies-of-year/{year}' , 'MovieController@moviesByYear')->name('frontend.movies.yaer');
 
 
 
