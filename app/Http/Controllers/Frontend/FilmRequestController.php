@@ -23,7 +23,7 @@ class FilmRequestController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required | email',
             'subject' => 'required',
             'body' => 'required',
 

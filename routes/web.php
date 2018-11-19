@@ -65,16 +65,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin' , 'middleware' => 'aut
     Route::get('/comments','CommentController@index')->name('admin.comments.list');
     Route::get('/comments/verify/{id}/{flag}', 'CommentController@verify')->name('admin.comments.verify');
     Route::get('/comments/singleshow/{id}','CommentController@singleshow')->name('admin.comments.singleshow');
-    Route::post('/comments/answer/{id}','CommentController@answer')->name('admin.comments.answer');
+    Route::post('/comments/answer/{id}/{flag}','CommentController@answer')->name('admin.comments.answer');
     Route::get('/comments/edit/{id}','CommentController@edit')->name('admin.comments.edit');
     Route::post('/comments/update/{id}','CommentController@update')->name('admin.comments.update');
     Route::get('/comments/remove/{id}','CommentController@remove')->name('admin.comments.remove');
 
 
     //film requests route
-    Route::get('/film_requests/sendMail/{id}' , 'FilmRequestController@sendMail')->name('admin.film_request.sendMail');
+    Route::get('/film_requests/sendMail/{id}/{flag}' , 'FilmRequestController@sendMail')->name('admin.film_request.sendMail');
     Route::get('/film_requests' , 'FilmRequestController@index')->name('admin.film_request.index');
+    Route::get('/film_requests/remove/{id}','FilmRequestController@remove')->name('admin.film_request.remove');
 
+    //contact us
+    Route::get('/contact_us' , 'Contact_usController@index')->name('admin.contact_us.index');
+    Route::get('/contact_us/seen/{id}' , 'Contact_usController@seen')->name('admin.contact_us.seen');
+    Route::get('/contact_us/remove/{id}','Contact_usController@remove')->name('admin.contact_us.remove');
 
 });
 
@@ -109,10 +114,11 @@ Route::group(['namespace' => 'Frontend'],function (){
 
     //Request Routes
     Route::get('/film_request', 'FilmRequestController@index')->name('index');
+    Route::post('/film_request/store' , 'FilmRequestController@store')->name('frontend.film_request.store');
 
 
-    Route::post('/film_requests/store' , 'FilmRequestController@store')->name('frontend.film_request.store');
-
-
+    //contact us
+    Route::get('/contact_us', 'Contact_usController@index')->name('index');
+    Route::post('/contact_us/store' , 'Contact_usController@store')->name('frontend.contact_us.store');
 
 });

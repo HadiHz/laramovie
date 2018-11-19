@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-
+@include('admin.partials.notifications')
 
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -31,8 +31,6 @@
 
                         @if($comment->status == 1)
                             @include('admin.comment.item',$comment)
-
-
                         @endif
                     @endforeach
 

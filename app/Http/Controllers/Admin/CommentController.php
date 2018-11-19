@@ -10,6 +10,14 @@ namespace App\Http\Controllers\Admin;
 
 
 
+use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use App\Models\Movie;
+use App\Models\Serial;
+use Illuminate\Http\Request;
+use Redirect;
+
+
 class CommentController extends Controller
 {
 
@@ -48,7 +56,6 @@ class CommentController extends Controller
         $comment->status = 4;//for admin answers
         $comment->parent_id = $id;
 
-
         $id2 = Comment::find($id)->commentable()->first()->id;//get post id related to this comment
 
         if($flag == 1){//movie
@@ -59,7 +66,8 @@ class CommentController extends Controller
             $serial->comments()->save($comment);
         }
 
-        return Redirect::route('admin.comments.list');
+        //oon chizi ke redirect route mire behesh name marboot br route hast ke too web.php gozashtimesh
+        return Redirect::route('admin.comments.list')->with('success','پاسخ به کامنت مورد نظر ارسال شد');
     }
 
 
@@ -76,7 +84,7 @@ class CommentController extends Controller
         ]);
 
         if($comment){
-            return Redirect::route('admin.comments.list');
+            return Redirect::route('admin.comments.list')->with('success','پاسخ شما ویرایش شد');
         }
 
     }
@@ -85,7 +93,7 @@ class CommentController extends Controller
         $removeResult = Comment::destroy([$id]);
 
         if($removeResult){
-            return Redirect::route('admin.comments.list');
+            return Redirect::route('admin.comments.list')->with('success','پاسخ مورد نظر شما حذف شد');
         }
     }
 }

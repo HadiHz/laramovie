@@ -1,3 +1,10 @@
 <div class="row pr-5">
-    {{ $reply->body }}
+
+</div>
+
+
+<div class="comment-reply-body">
+    <p>
+        {{ $reply->body }}
+    </p>
 </div>

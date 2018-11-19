@@ -33,6 +33,24 @@
 </div>
 
 <div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
+    <a href="{{ route('admin.film_request.index') }}">
+        <span class="text-light ">مدیریت درخواست ها</span>
+    </a>
+</div>
+
+<div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
+    <a href="{{ route('admin.comments.list') }}">
+        <span class="text-light ">مدیریت نظرات</span>
+    </a>
+</div>
+
+<div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
+    <a href="{{ route('admin.contact_us.index') }}">
+        <span class="text-light ">مدیریت ارتباطات</span>
+    </a>
+</div>
+
+<div class="item-sidebar-right-panel shadow text-light pt-3 pb-3">
     <a href="">
         <span class="text-light ">مدیریت بنرهای تبلیغاتی</span>
     </a>

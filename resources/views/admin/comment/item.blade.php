@@ -1,7 +1,8 @@
 <tr style="{{($comment->status == 3) ?  'color: red': ($comment->status == 1 ? 'font-weight: bold' : '' )}}">
 
-    <td>{{ $comment->commentable()->first()->title }}</td>
-    <td>{{  $comment->sender  }}</td>
+    <td>{{ $comment->commentable()->first()->name }}</td>
+    <td>{{  $comment->sender_name  }}</td>
+    <td>{{  $comment->sender_email  }}</td>
     <td>{{  $comment->body  }}</td>
     <!-- باید بدونیم کامنت مربوط به کدوم پست هست -->
     <td>
