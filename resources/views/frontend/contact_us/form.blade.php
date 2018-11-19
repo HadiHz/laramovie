@@ -25,7 +25,7 @@
             </div>
             <div class="form-group row justify-content-center">
                 <div class="col-12 text-center pt-5">
-                    <button type="submit" class="btn btn-primary justify-content-center">ارسال درخواست</button>
+                    <button type="submit" class="btn btn-primary justify-content-center">ارسال</button>
                 </div>
             </div>
         </form>

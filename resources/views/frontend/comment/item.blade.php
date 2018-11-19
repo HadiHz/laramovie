@@ -1,5 +1,6 @@
 <div class="row mt-3">
-    <div class="col-12 text-right shadow-lg">
+    <div class="col-12 col-md-2"></div>
+    <div class="col-12 text-right shadow-lg col-md-7">
         <div class="row mb-3 mt-3">
             <div class="comment-box pt-4 mr-3 ml-3">
                 <?php
