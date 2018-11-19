@@ -3,7 +3,7 @@
         <div class="comment-title pt-3 pb-3 mb-3 pr-2 pl-2  ">
             <span class="d-block">دیدگاه شما</span>
         </div>
-        <form method="post" action="{{ route('frontend.comment.store',['id' => $movieItem->id,'flag'=>1]) }}">
+        <form method="post" action="{{ route('frontend.comment.store',['id' => $item->id,$flag]) }}">
             {!! csrf_field() !!}
             <div class="form-group pr-2 pl-2">
                 <label for="formGroupExampleInput">نام شما</label>

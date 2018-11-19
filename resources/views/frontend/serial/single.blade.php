@@ -149,4 +149,8 @@
 
 @section('comment')
 
+    @include('frontend.comment.form',['item' => $serialItem,'flag' => 2])
+    @include('frontend.comment.list',['item' => $serialItem])
+
+
 @endsection
