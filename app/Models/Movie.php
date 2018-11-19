@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
 
-    use sluggable;
+    use Sluggable;
     use SluggableScopeHelpers;
 
     protected $guarded = ['id'];

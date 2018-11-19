@@ -7,7 +7,7 @@
 
     <form method="post" action="{{ route('admin.comments.update',['id' => $comment->id]) }}">
         {!! csrf_field() !!}
-        <textarea name="body"></textarea>
+        <textarea name="body">{{ $comment->body }}</textarea>
         <button type="submit">ارسال</button>
 
     </form>

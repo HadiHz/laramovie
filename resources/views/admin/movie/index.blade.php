@@ -53,5 +53,6 @@
         {{ $movies->links() }}
 
 
+
     </div>
 @endsection

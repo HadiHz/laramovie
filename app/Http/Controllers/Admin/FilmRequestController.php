@@ -22,12 +22,34 @@ class FilmRequestController extends Controller
         return view('admin.film_request.list',compact('film_requests'));
     }
 
-    public function sendMail($id){
+    public function sendMail($id,$flag){
         $film_request = Film_request::find($id);
         $name = $film_request->name;
-        Mail::to($film_request->email)->send(new SendMailable($name));
+
+        Mail::to($film_request->email)->send(new SendMailable($name,$flag));
+
+
+        if($flag == 1){
+            $film_request->update([ //mire too ghesmate makhsoose email haye =====>>> Agreement
+                'status' => 2
+            ]);
+        }elseif ($flag == 2){
+            $film_request->update([ //mire too ghesmate makhsoose email haye =====>>> Available
+                'status' => 3
+            ]);
+        }
+
+
+        return back()->with('success','ایمیل مربوطه برای کاربر مورد نظر شما ارسال شد');
     }
 
+    public function remove($id){
+        $removeResult = Film_request::destroy([$id]);
+
+        if($removeResult){
+            return back()->with('success','درخواست مورد نظر حذف شد');
+        }
+    }
 
 
 }

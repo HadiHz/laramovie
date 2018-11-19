@@ -34,5 +34,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/select2.min.js"></script>
 <script src="/js/custom-admin.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
