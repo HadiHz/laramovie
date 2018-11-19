@@ -20,7 +20,8 @@ Route::get('/test', function () {
 
 //when authentication failed, user redirect to login route automatically
 //hadi i cant speak persian , please speak english namoosan
-Route::get('/login' , 'frontend\UserController@login')->name('login');
+Route::get('/lopage' , 'frontend\UserController@login')->name('lopage');
+Route::get('/logout' , 'frontend\UserController@logout')->name('logout');
 Route::post('/authenticate' , 'frontend\UserController@authenticate')->name('authenticate');
 
 

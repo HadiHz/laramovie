@@ -41,8 +41,9 @@ class UserController extends Controller
 
         $email = $request->email;
         $password = $request->password;
+        $remember = $request->has('remember');
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::attempt(['email' => $email, 'password' => $password] , $remember)) {
             //agar passwordi ke midi bcrypt nabashe amaliate ehraze hoviat ro barat anjam nemide. bayad hata bara tet ham password ro bcrypt koni
             // Authentication passed...
             return redirect()->intended('welcome');
@@ -52,5 +53,11 @@ class UserController extends Controller
         return back();
     }
 
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
 
 }
