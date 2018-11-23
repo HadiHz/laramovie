@@ -14,6 +14,6 @@ class GenreController extends Controller
         $movies = $genre->movies()->get();
         $serials = $genre->serials()->get();
         $allResults = $movies->concat($serials)->paginate(15);
-        return view('frontend.home.index' , compact('allResults'));
+        return view('frontend.home.index' , compact('allResults', 'genre'));
     }
 }

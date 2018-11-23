@@ -13,16 +13,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+/*
 Route::get('/test', function () {
     return view('welcome');
 });
-
+*/
 
 //when authentication failed, user redirect to login route automatically
 //hadi i cant speak persian , please speak english namoosan
-Route::get('/lopage' , 'frontend\UserController@login')->name('lopage');
-Route::get('/logout' , 'frontend\UserController@logout')->name('logout');
-Route::post('/authenticate' , 'frontend\UserController@authenticate')->name('authenticate');
+Route::get('/lopage' , 'Frontend\UserController@login')->name('lopage');
+Route::get('/logout' , 'Frontend\UserController@logout')->name('logout');
+Route::post('/authenticate' , 'Frontend\UserController@authenticate')->name('authenticate');
 
 
 
