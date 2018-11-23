@@ -19,14 +19,10 @@ class UserController extends Controller
     public function login(){
         //in view ro bezar samte front
 
-/*
-        User::create([
-            'name' => 'test',
-            'email' => 'test@gmail.com',
-            'password' =>bcrypt('123')
-        ]);
 
-*/
+
+
+
 
         return view('admin.login.index');
     }
@@ -46,7 +42,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password] , $remember)) {
             //agar passwordi ke midi bcrypt nabashe amaliate ehraze hoviat ro barat anjam nemide. bayad hata bara tet ham password ro bcrypt koni
             // Authentication passed...
-            return redirect()->intended('welcome');
+            return redirect()->intended('admin/movies');
             //میبره جایی که کاربر یه پیج رو باز کرده بود و ما پاسش داده بودیم به ص لاگین...یه پیشفرض هم داره که اگه تو خود لاگین اومده بود یه سر کجا بره
         }
 
